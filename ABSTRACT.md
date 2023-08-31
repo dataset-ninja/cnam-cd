@@ -1,0 +1,1 @@
+CNAM-CD is a pixel-level multi-category change detection dataset from different Chinese national new areas. This is the first version publicly available, where A is the image at the previous time, B is the image at the later time and Label is the corresponding label.
