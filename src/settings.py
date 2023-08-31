@@ -52,11 +52,18 @@ DOWNLOAD_ORIGINAL_URL: Optional[
 ] = "https://drive.google.com/file/d/1w6tDfE-F4o3Q4KGh1jzzIRpIlIUIXXrx/view?usp=sharing"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
-CLASS2COLOR: Optional[Dict[str, List[str]]] = None
+CLASS2COLOR: Optional[Dict[str, List[str]]] = {
+    "background": [230, 25, 75],
+    "bare ground": [60, 180, 75],
+    "impervious surface": [255, 225, 25],
+    "vegetation": [0, 130, 200],
+    "other": [245, 130, 48],
+    "water bodies": [145, 30, 180],
+}
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
 # If you have more than the one paper, put the most relatable link as the first element of the list
-PAPER: Optional[Union[str, List[str]]] = "https://www.mdpi.com/2072-4292/15/9/2464"
+PAPER: Optional[Union[str, List[str]]] = None  # "https://www.mdpi.com/2072-4292/15/9/2464"
 BLOGPOST: Optional[Union[str, List[str]]] = None
 CITATION_URL: Optional[str] = None
 AUTHORS: Optional[List[str]] = None
