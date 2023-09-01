@@ -14,15 +14,18 @@ from dataset_tools.templates import (
 # * Before uploading to instance #
 ##################################
 PROJECT_NAME: str = "CNAM-CD"
-PROJECT_NAME_FULL: str = "CNAM-CD"
-HIDE_DATASET = False  # set False when 100% sure about repo quality
+PROJECT_NAME_FULL: str = "CNAM-CD: A Multi-Class Change Detection Dataset"
+HIDE_DATASET = True  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
 ##################################
 LICENSE: License = License.Apache_2_0()
-APPLICATIONS: List[Union[Industry, Domain, Research]] = [Domain.Geospatial()]
-CATEGORY: Category = Category.Aerial()
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [
+    Domain.Geospatial(),
+    Industry.UrbanPlanning(),
+]
+CATEGORY: Category = Category.Aerial(extra=[Category.Environmental(), Category.Satellite()])
 
 CV_TASKS: List[CVTask] = [
     CVTask.InstanceSegmentation(),
@@ -31,14 +34,14 @@ CV_TASKS: List[CVTask] = [
 ]
 ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.InstanceSegmentation()]
 
-RELEASE_DATE: Optional[str] = "2023-04-30"  # e.g. "YYYY-MM-DD"
+RELEASE_DATE: Optional[str] = "2023-05-03"  # e.g. "YYYY-MM-DD"
 if RELEASE_DATE is None:
     RELEASE_YEAR: int = None
 
 HOMEPAGE_URL: str = "https://github.com/Silvestezhou/CNAM-CD"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = 2664659
+PREVIEW_IMAGE_ID: int = 2700316
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
 GITHUB_URL: str = "https://github.com/dataset-ninja/cnam-cd"
@@ -63,13 +66,20 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = {
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
 # If you have more than the one paper, put the most relatable link as the first element of the list
-PAPER: Optional[Union[str, List[str]]] = None  # "https://www.mdpi.com/2072-4292/15/9/2464"
+PAPER: Optional[Union[str, List[str]]] = "https://www.mdpi.com/2072-4292/15/9/2464"
 BLOGPOST: Optional[Union[str, List[str]]] = None
 CITATION_URL: Optional[str] = None
-AUTHORS: Optional[List[str]] = None
+AUTHORS: Optional[List[str]] = [
+    "Zhou, Yanpeng",
+    "Wang, Jinjie",
+    "Ding, Jianli",
+    "Liu, Bohua",
+    "Weng, Nan",
+    "Xiao, Hongzhi",
+]
 
-ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
-ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = "Xinjiang University, China"
+ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://www.xju.edu.cn/"
 
 # Set '__PRETEXT__' or '__POSTTEXT__' as a key with value:str to add custom text. e.g. SLYTAGSPLIT = {'__POSTTEXT__':'some text}
 SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = None

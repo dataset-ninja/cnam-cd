@@ -42,12 +42,18 @@ def convert_and_upload_supervisely_project(
     batch_size = 30
     ds_name = "ds"
 
+    group_tag_name = "im_id"
+
     def create_ann(image_path):
         labels = []
 
         image_np = sly.imaging.image.read(image_path)[:, :, 0]
         img_height = image_np.shape[0]
         img_wight = image_np.shape[1]
+
+        id_data = get_file_name(image_path)
+        group_id = sly.Tag(tag_id, value=id_data)
+        tags = [group_id]
 
         mask_path = os.path.join(masks_path, get_file_name_with_ext(image_path))
 
@@ -68,7 +74,7 @@ def convert_and_upload_supervisely_project(
                             labels.append(curr_label)
 
         tag_name = image_path.split("/")[-2]
-        tags = [sly.Tag(tag_meta) for tag_meta in tag_metas if tag_meta.name == tag_name]
+        tags += [sly.Tag(tag_meta) for tag_meta in tag_metas if tag_meta.name == tag_name]
 
         return sly.Annotation(img_size=(img_height, img_wight), labels=labels, img_tags=tags)
 
@@ -91,12 +97,19 @@ def convert_and_upload_supervisely_project(
 
     tag_metas = [sly.TagMeta(name, sly.TagValueType.NONE) for name in tag_names]
 
+    tag_id = sly.TagMeta("im_id", sly.TagValueType.ANY_STRING)
+    group_tag_meta = sly.TagMeta(group_tag_name, sly.TagValueType.ANY_STRING)
+
     project = api.project.create(workspace_id, project_name, change_name_if_conflict=True)
 
-    meta = sly.ProjectMeta(obj_classes=list(idx_to_class.values()), tag_metas=tag_metas)
+    meta = sly.ProjectMeta(
+        obj_classes=list(idx_to_class.values()), tag_metas=tag_metas + [group_tag_meta]
+    )
     api.project.update_meta(project.id, meta.to_json())
 
     masks_path = os.path.join(dataset_path, masks_folder_name)
+
+    api.project.images_grouping(id=project.id, enable=True, tag_name=group_tag_name)
 
     dataset = api.dataset.create(project.id, ds_name, change_name_if_conflict=True)
 
