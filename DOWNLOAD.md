@@ -1,6 +1,6 @@
 Dataset **CNAM-CD** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/B/C/51/bz5sTp3070wHqc5ospY91cSu7GvV8H7kf9pSmiRtMmIC8CbJ16BPxz0YoAVjUM8Kg9h4uiwG0qhd9g72meD8s4OrAgVKGA00YWV6UimrQdCd7eEIF5R9exOomKdP.tar)
+ [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/N/g/2U/PShvVOlemrV8HZH9BbmBH0GNH6dccVOyka8ZVt0ia8s4AAEsSRPy4MWut3AVA8kPbAWBBtUzx7osJmHES08XKJ1jIX1MYONgVnntji7qBLEtwmEf9rDM0kQcpHJs.tar)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
