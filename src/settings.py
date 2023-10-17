@@ -20,7 +20,7 @@ HIDE_DATASET = False  # set False when 100% sure about repo quality
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = License.Apache_2_0()
+LICENSE: License = License.Apache_2_0(source_url="https://github.com/Silvestezhou/CNAM-CD/blob/main/LICENSE")
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [
     Domain.Geospatial(),
     Industry.UrbanPlanning(),
