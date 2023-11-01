@@ -1,11 +1,8 @@
-**CNAM-CD** is a pixel-level multi-category change detection dataset from different Chinese national new areas. This is the first version publicly available, where ***A*** is the image at the previous time, ***B*** is the image at the later time and Label is the corresponding label.
-
-The authors of the dataset recognized the formidable challenges in detecting changes within urban areas, marked by intricate features, rapid alterations, and human-induced interferences. They observed that the conventional binary change detection (BCD) methods used for urban change detection have limitations as cities become more complex. These BCD techniques often rely on convolutional operations, which struggle to capture comprehensive contextual and semantic information.
+The authors of the **CNAM-CD** dataset recognized the formidable challenges in detecting changes within urban areas, marked by intricate features, rapid alterations, and human-induced interferences from different Chinese new national areas. They observed that the conventional binary change detection (BCD) methods used for urban change detection have limitations as cities become more complex. These BCD techniques often rely on convolutional operations, which struggle to capture comprehensive contextual and semantic information. This is the first version publicly available, where ***A*** is the image at the previous time, ***B*** is the image at the later time and Label is the corresponding label.
 
 To address these issues, the authors introduced SIGNet, a Siamese graph convolutional network designed to enhance the accuracy of urban multi-class change detection (MCD) tasks. The experimental results demonstrated SIGNet's superior performance in capturing contextual relationships and semantic correlations, establishing it as a state-of-the-art solution for MCD tasks.
 
 <img src="https://github.com/supervisely/supervisely/assets/78355358/7c178c9b-cf6f-48d6-91cf-46888ba7fa69" alt="image" width="800">
-
 
 Recognizing the scarcity of pixel-level datasets in the MCD domain, the authors introduced a new dataset named CNAM-CD, which offers extensive labeling for multi-class change detection. CNAM-CD comprises 2508 pairs of high-resolution images and serves as a valuable resource for evaluating models, particularly when compared to traditional BCD approaches.
 
