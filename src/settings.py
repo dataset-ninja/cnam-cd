@@ -86,7 +86,8 @@ ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://www.xju.edu.cn/"
 SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = {
     "__PRETEXT__": "Alternatively, the dataset could be split into 2512 groups set by ***img_id***. Every group has 2 images: ***A*** (before) and ***B*** (after). Ground truth masks assigned to ***B***"
 }
-TAGS: Optional[List[str]] = None
+TAGS: Optional[List[str]] = ['multi-view']
+
 
 
 SECTION_EXPLORE_CUSTOM_DATASETS: Optional[List[str]] = None
